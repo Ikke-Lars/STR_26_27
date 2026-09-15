@@ -8,4 +8,4 @@ Columns have been evaluated wrongly, since it is claimed that their carrying cap
 
 #### 2. Team 26-08 Model:
 The model (& tools) are missing information for describing the support conditions of general structural elements. I.e the relationship between multiple structural elements cannot be described.
- - A solution for this could be for example that a specific point of a beam has described the support conditions and how great of a surface the conditions cover.
+ - A solution for this could be for example that a specific point of a beam has described the support conditions and how great of a surface the conditions cover. Furthermore the relationship between two structural elements could be described via the same points. However this could seem like an IFC issue and not so much as a possible tool.
