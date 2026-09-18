@@ -12,5 +12,5 @@ The model (& tools) are missing information for describing the support condition
 
 
 #### 3. Team 26-08 Model:
-For every element of Beam and Column there is one type as a parent for that element. That means that there are X number of beams and X number of BeamTypes. This is because that for every element type there is a duplicate for that number of elements using that specific type, fx. IfcBeamType/S202 has multiple IfcBeamType/S202.016, IfcBeamType/S202.017, IfcBeamType/S202.018 and so on.
+For every element of Beam and Column there is one type as a parent for that element. That means that there are X number of beams and X number of BeamTypes. This is because that for every element type there is a duplicate for that number of elements using that specific type, fx. IfcBeamType/S202 has multiple IfcBeamType/S202.016, IfcBeamType/S202.017, IfcBeamType/S202.018 and so on. It seems that its a bug from bonsai, but still needs to be assessed.
  - Solution: A cleaning tool, that compares the property sets of duplicate types. If they are similar the tool could join them under the parent type and delete the duplicates.
