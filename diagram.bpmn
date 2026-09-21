@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0oik9f0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.29.0">
+  <bpmn:process id="Process_0l7f7xf" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_0u7u389">
+      <bpmn:outgoing>Flow_1abk0td</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:subProcess id="Activity_1auk5ar" name="Step 1:&#10;Start event:&#10;Gather material parameters and geometry">
+      <bpmn:incoming>Flow_0s3dg7b</bpmn:incoming>
+      <bpmn:outgoing>Flow_0bfmwta</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_1grvi97" name="Step 2:&#10;Calculate the cross-section parameters of columns">
+      <bpmn:incoming>Flow_0bfmwta</bpmn:incoming>
+      <bpmn:outgoing>Flow_189gl57</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_0uw2s2a" name="Step 3:&#10;Calculate axial bearing capacity of columns for both axis">
+      <bpmn:incoming>Flow_189gl57</bpmn:incoming>
+      <bpmn:incoming>Flow_0wk25aa</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ozl945</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_0bfmwta" sourceRef="Activity_1auk5ar" targetRef="Activity_1grvi97" />
+    <bpmn:sequenceFlow id="Flow_189gl57" sourceRef="Activity_1grvi97" targetRef="Activity_0uw2s2a" />
+    <bpmn:boundaryEvent id="Event_1omllxq" attachedToRef="Activity_1auk5ar">
+      <bpmn:outgoing>Flow_039pdk5</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_048ik8a" />
+    </bpmn:boundaryEvent>
+    <bpmn:task id="Activity_1r0q55d" name="Gather cross sectional data">
+      <bpmn:incoming>Flow_039pdk5</bpmn:incoming>
+      <bpmn:outgoing>Flow_0wk25aa</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_039pdk5" sourceRef="Event_1omllxq" targetRef="Activity_1r0q55d" />
+    <bpmn:sequenceFlow id="Flow_0wk25aa" sourceRef="Activity_1r0q55d" targetRef="Activity_0uw2s2a" />
+    <bpmn:subProcess id="Activity_0enzc8x" name="Initation:&#10;Calculate or define a load value that the column are exposed to in the building&#10;&#10;Also define if you want to analyse the columns eccentrically or as centrally loaded columns">
+      <bpmn:incoming>Flow_1abk0td</bpmn:incoming>
+      <bpmn:outgoing>Flow_0s3dg7b</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_0s3dg7b" sourceRef="Activity_0enzc8x" targetRef="Activity_1auk5ar" />
+    <bpmn:exclusiveGateway id="Gateway_16dsvl4">
+      <bpmn:incoming>Flow_1ozl945</bpmn:incoming>
+      <bpmn:outgoing>Flow_04s4e19</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0gwg848</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1ozl945" sourceRef="Activity_0uw2s2a" targetRef="Gateway_16dsvl4" />
+    <bpmn:subProcess id="Activity_1nz04h0" name="Yes: Generate a report of which column are ok, and what material and cross sections they have, and corresponding .ifc data&#10;&#10;And maybe a corresponding visualization of what columns are ok">
+      <bpmn:incoming>Flow_04s4e19</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fxqcr4</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_04s4e19" sourceRef="Gateway_16dsvl4" targetRef="Activity_1nz04h0" />
+    <bpmn:task id="Activity_1tnh68f" name="No: The x amount of column identified need to be evaluated">
+      <bpmn:incoming>Flow_0gwg848</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0gwg848" sourceRef="Gateway_16dsvl4" targetRef="Activity_1tnh68f" />
+    <bpmn:subProcess id="Activity_0so0h0o" name="End Event:&#10;The process finishes when all columns are evaluated and a report is generated&#10;&#10;And hopefully a visualization also :)">
+      <bpmn:incoming>Flow_0fxqcr4</bpmn:incoming>
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_0fxqcr4" sourceRef="Activity_1nz04h0" targetRef="Activity_0so0h0o" />
+    <bpmn:sequenceFlow id="Flow_1abk0td" sourceRef="StartEvent_0u7u389" targetRef="Activity_0enzc8x" />
+    <bpmn:textAnnotation id="TextAnnotation_00kufpx">
+      <bpmn:text>Decision: Is capacity utilization ok? The process evaluates the bearing capacity versus the load, which is thereby represented in a (%) of Ned/Nrd</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_004l5sk" associationDirection="None" sourceRef="Gateway_16dsvl4" targetRef="TextAnnotation_00kufpx" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0l7f7xf">
+      <bpmndi:BPMNShape id="Activity_1r0q55d_di" bpmnElement="Activity_1r0q55d">
+        <dc:Bounds x="800" y="390" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_0u7u389">
+        <dc:Bounds x="152" y="252" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_16dsvl4_di" bpmnElement="Gateway_16dsvl4" isMarkerVisible="true">
+        <dc:Bounds x="1295" y="235" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1tnh68f_di" bpmnElement="Activity_1tnh68f">
+        <dc:Bounds x="1270" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1auk5ar_di" bpmnElement="Activity_1auk5ar" isExpanded="true">
+        <dc:Bounds x="480" y="185" width="190" height="170" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1djaxfw" bpmnElement="Activity_0uw2s2a" isExpanded="true">
+        <dc:Bounds x="1020" y="182" width="190" height="173" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1v6q65q" bpmnElement="Activity_1grvi97" isExpanded="false">
+        <dc:Bounds x="800" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1tjfyhu" bpmnElement="Activity_0enzc8x" isExpanded="true">
+        <dc:Bounds x="240" y="183" width="190" height="173" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_004l5sk_di" bpmnElement="Association_004l5sk">
+        <di:waypoint x="1320" y="285" />
+        <di:waypoint x="1320" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_16mj0l9" bpmnElement="Activity_1nz04h0" isExpanded="true">
+        <dc:Bounds x="1440" y="186" width="170" height="168" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_16jv6be" bpmnElement="Activity_0so0h0o" isExpanded="true">
+        <dc:Bounds x="1700" y="186" width="170" height="168" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1de58kg_di" bpmnElement="Event_1omllxq">
+        <dc:Bounds x="502" y="337" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0bfmwta_di" bpmnElement="Flow_0bfmwta">
+        <di:waypoint x="670" y="260" />
+        <di:waypoint x="800" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_189gl57_di" bpmnElement="Flow_189gl57">
+        <di:waypoint x="900" y="260" />
+        <di:waypoint x="1020" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_039pdk5_di" bpmnElement="Flow_039pdk5">
+        <di:waypoint x="520" y="373" />
+        <di:waypoint x="520" y="430" />
+        <di:waypoint x="800" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wk25aa_di" bpmnElement="Flow_0wk25aa">
+        <di:waypoint x="900" y="430" />
+        <di:waypoint x="1115" y="430" />
+        <di:waypoint x="1115" y="355" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0s3dg7b_di" bpmnElement="Flow_0s3dg7b">
+        <di:waypoint x="430" y="270" />
+        <di:waypoint x="480" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ozl945_di" bpmnElement="Flow_1ozl945">
+        <di:waypoint x="1210" y="260" />
+        <di:waypoint x="1295" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_00kufpx_di" bpmnElement="TextAnnotation_00kufpx">
+        <dc:Bounds x="1270" y="335" width="160" height="115" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0gwg848_di" bpmnElement="Flow_0gwg848">
+        <di:waypoint x="1320" y="235" />
+        <di:waypoint x="1320" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04s4e19_di" bpmnElement="Flow_04s4e19">
+        <di:waypoint x="1345" y="260" />
+        <di:waypoint x="1440" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fxqcr4_di" bpmnElement="Flow_0fxqcr4">
+        <di:waypoint x="1610" y="270" />
+        <di:waypoint x="1700" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1abk0td_di" bpmnElement="Flow_1abk0td">
+        <di:waypoint x="188" y="270" />
+        <di:waypoint x="240" y="270" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_01zcwrq">
+    <bpmndi:BPMNPlane id="BPMNPlane_0il2062" bpmnElement="Activity_1grvi97" />
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
