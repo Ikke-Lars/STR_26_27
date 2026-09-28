@@ -20,27 +20,27 @@ A: We looked at report 26-09-A, where they analyzed the structural columns in th
 
 Accordingly our assessment, will focus on creating a tool that can verify the axial bearing capacity of the columns in a more in-depth calculation, where we implement the correct structural formulas from eurocode for each column, where calculations are  dependent on cross sections types and material selection of set column.
 
-## A2c: Use Case
+# A2c: Use Case
 
 **Q: How would you check this claim?**
 
 A:
 
 
-## A2d: Scope the use case
+# A2d: Scope the use case
 
 
-## A2e: Tool Idea
+# A2e: Tool Idea
 
 
-## A2f: Information Requirements
+# A2f: Information Requirements
 
 
-## A2g: Identify appropriate software licence
+# A2g: Identify appropriate software licence
 
 **Q: What software licence will you choose for your project?**
 
-A: 
+A: Blender, Bonsai, Python, Visual Studio Code & Github
 
 
 
