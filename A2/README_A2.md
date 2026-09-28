@@ -49,7 +49,9 @@ A: The check requires the following information regarding the columns: (Mangler 
 
 
 # A2f: Information Requirements
+**Q: Identify what information you need to extract from the model
 
+A: The needed infromation is geometric and material data for the coloumn that can be found in IFCcoloumn
 
 # A2g: Identify appropriate software licence
 
