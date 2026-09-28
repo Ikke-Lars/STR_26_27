@@ -9,4 +9,5 @@ A: 9 or 3 for all of us. We are familiar with coding in python on a okay level.
 
 A: Our group's focus area is structures. We are both analysts and managers at the time being.
 
-# A2B: Identify Claim
+# A2b: Identify Claim
+
