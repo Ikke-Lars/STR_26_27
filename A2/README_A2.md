@@ -26,8 +26,18 @@ Accordingly our assessment, will focus on creating a tool that can verify the ax
 
 A: We would develop a tool that checks the axial capacity of all structural columns in the IFC model. It would identify each column’s material, cross-section, and dimensions, then apply a suitable Eurocode-based calculation rather than using the same simplified method for every column. The tool would compare the calculated resistance with the design axial load and report each column’s utilization, along with any assumptions or missing information in the given columns.
 
+**Q: When would this claim need to be checked?**
 
+A: During the design phase, once column properties and design loads are available for an Ultimate Limit State (ULS) check. The check should be repeated if the column design or loads change.
 
+**Q: What information does this claim rely on**
+
+A: The check requires the following information regarding the columns: (Mangler skal ændres)
+      - Identity and location of each load-bearing column
+      - its material and grade; its cross-section and dimensions
+      - The member length and relevant support or bracing conditions
+      - The design axial force acting on it. 
+      - Reinforcement information is also needed for a reinforced concrete capacity check.
 
 # A2d: Scope the use case
 
