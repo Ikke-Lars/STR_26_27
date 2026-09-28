@@ -25,3 +25,27 @@ Accordingly our assessment, will focus on creating a tool that can verify the ax
 **Q: How would you check this claim?**
 
 A:
+
+
+## A2d: Scope the use case
+
+
+## A2e: Tool Idea
+
+
+## A2f: Information Requirements
+
+
+## A2g: Identify appropriate software licence
+
+**Q: What software licence will you choose for your project?**
+
+A: 
+
+
+
+
+
+
+
+
