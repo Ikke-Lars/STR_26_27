@@ -43,7 +43,7 @@ A: The check requires the following information regarding the columns: (Mangler 
 **Q: What phase? planning, design, build or operation.**
 
 # A2d: Scope the use case
-
+![BPMN DIAGRAM](diagram.svg) 
 
 # A2e: Tool Idea
 
