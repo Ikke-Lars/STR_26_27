@@ -19,3 +19,9 @@ A: We'll be focusing at building #2516
 A: We looked at report 26-09-A, where they analyzed the structural columns in the building and quantified there usage, where some columns would exceed a usage of 100%. We hereafter looked into the code used to analyse the axial bearing capacity of the columns and found that the calculations were superficially calculated, and didn't handle the affect of material and cross-section area in their calculations.
 
 Accordingly our assessment, will focus on creating a tool that can verify the axial bearing capacity of the columns in a more in-depth calculation, where we implement the correct structural formulas from eurocode for each column, where calculations are  dependent on cross sections types and material selection of set column.
+
+## A2c: Use Case
+
+**Q: How would you check this claim?**
+
+A:
