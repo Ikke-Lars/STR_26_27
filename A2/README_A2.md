@@ -33,11 +33,12 @@ A: During the design phase, once column properties and design loads are availabl
 **Q: What information does this claim rely on**
 
 A: The check requires the following information regarding the columns: (Mangler skal ændres)
-      - Identity and location of each load-bearing column
-      - its material and grade; its cross-section and dimensions
-      - The member length and relevant support or bracing conditions
-      - The design axial force acting on it. 
-      - Reinforcement information is also needed for a reinforced concrete capacity check.
+
+- Identity and location of each load-bearing column
+- its material and grade; its cross-section and dimensions
+- The member length and relevant support or bracing conditions
+- The design axial force acting on it. 
+- Reinforcement information is also needed for a reinforced concrete capacity check.
 
 # A2d: Scope the use case
 
