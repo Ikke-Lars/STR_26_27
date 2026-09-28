@@ -42,6 +42,8 @@ A: The check requires the following information regarding the columns: (Mangler 
 
 **Q: What phase? planning, design, build or operation.**
 
+A: This tool would be mainly applicable in the design phase. Whereby it can be used to validate the structural design of columns, for different loading conditions.
+
 # A2d: Scope the use case
 ![BPMN DIAGRAM](diagram.svg) 
 
