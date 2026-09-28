@@ -24,7 +24,9 @@ Accordingly our assessment, will focus on creating a tool that can verify the ax
 
 **Q: How would you check this claim?**
 
-A:
+A: We would develop a tool that checks the axial capacity of all structural columns in the IFC model. It would identify each column’s material, cross-section, and dimensions, then apply a suitable Eurocode-based calculation rather than using the same simplified method for every column. The tool would compare the calculated resistance with the design axial load and report each column’s utilization, along with any assumptions or missing information in the given columns.
+
+
 
 
 # A2d: Scope the use case
