@@ -40,6 +40,8 @@ A: The check requires the following information regarding the columns: (Mangler 
 - The design axial force acting on it. 
 - Reinforcement information is also needed for a reinforced concrete capacity check.
 
+**Q: What phase? planning, design, build or operation.**
+
 # A2d: Scope the use case
 
 
