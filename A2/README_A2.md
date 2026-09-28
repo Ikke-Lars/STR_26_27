@@ -44,6 +44,10 @@ A: The check requires the following information regarding the columns: (Mangler 
 
 A: This tool would be mainly applicable in the design phase. Whereby it can be used to validate the structural design of columns, for different loading conditions.
 
+**Q: What BIM purpose is required? Gather, generate, analyse, communicate or realise?**
+
+A: Primarily analyse. The workflow also gathers information from the IFC model and structural calculations and communicates the findings in a traceable report.
+
 # A2d: Scope the use case
 ![BPMN DIAGRAM](diagram.svg) 
 
